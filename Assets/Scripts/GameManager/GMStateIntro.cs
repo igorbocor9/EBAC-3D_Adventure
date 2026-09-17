@@ -1,0 +1,8 @@
+using Ebac.StateMachine;
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class GMStateIntro : StateBase
+{
+}
