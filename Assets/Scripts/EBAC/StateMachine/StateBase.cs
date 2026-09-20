@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EBAC.StateMachine
 {
-    public class StateBase : MonoBehaviour
+    public class StateBase
     {
         public virtual void OnStateEnter(object o = null)
         {
