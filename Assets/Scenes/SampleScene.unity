@@ -264,8 +264,10 @@ MonoBehaviour:
   characterController: {fileID: 877358582}
   speed: 1
   turnSpeed: 1
-  Gravity: -9.8
+  Gravity: 9.8
+  jumpSpeed: 15
   vSpeed: 0
+  jumpKeyCode: 32
 --- !u!143 &877358582
 CharacterController:
   m_ObjectHideFlags: 0
