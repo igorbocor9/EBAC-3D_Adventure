@@ -1,52 +1,27 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using EBAC.StateMachine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody rigidbody;
+    public Animator animator;
+    public CharacterController characterController;
+    public float speed = 1f;
+    public float turnSpeed = 1f;
+    public float Gravity = -9.8f;
 
-    public float _currentSpeed = 7f;
-    public float jumpForce = 5f;
+    public float vSpeed = 0f;
 
-    public enum States
+    void Update()
     {
-        WALK,
-        IDLE,
-        JUMP
+        transform.Rotate(0f, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0f);
+
+        var inputAxisVertical = Input.GetAxis("Vertical");
+        var speedVector = transform.forward * inputAxisVertical * speed;        
+        
+        vSpeed  = Gravity * Time.deltaTime;        
+        speedVector.y = vSpeed;        
+        
+        characterController.Move(speedVector * Time.deltaTime);    
+
+        animator.SetBool("Run", inputAxisVertical != 0);
     }
-
-    public StateMachine<States> stateMachine;
-
-    private void Start()
-    {
-        stateMachine = new StateMachine<States>();
-        stateMachine.Init();
-        stateMachine.RegisterStates(States.WALK, new PlayerStateWalk());
-        stateMachine.RegisterStates(States.IDLE, new PlayerStateIdle());
-        stateMachine.RegisterStates(States.JUMP, new PlayerStateJump());
-        stateMachine.SwitchState(States.IDLE);
-
-    }
-
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            stateMachine.SwitchState(States.WALK);
-        }
-        else
-        {
-            stateMachine.SwitchState(States.IDLE);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            stateMachine.SwitchState(States.JUMP);
-        }
-
-        stateMachine.Update();
-    }
-
 }
