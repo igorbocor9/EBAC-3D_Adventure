@@ -30,11 +30,11 @@ public class Player : MonoBehaviour
             if(Input.GetKey(keyRun))            
             {                
                 speedVector *= speedRun;                
-                animator.speed = speedRun;            
+                //animator.speed = speedRun;            
             }            
             else            
             {                
-                animator.speed = 1;            
+                //animator.speed = 1;            
             }        
         }
 
@@ -52,6 +52,6 @@ public class Player : MonoBehaviour
         
         characterController.Move(speedVector * Time.deltaTime);    
 
-        animator.SetBool("Run", inputAxisVertical != 0);
+        //animator.SetBool("Run", inputAxisVertical != 0);
     }
 }

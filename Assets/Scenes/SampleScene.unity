@@ -240,14 +240,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877358579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.21, y: 1.87, z: 0.98221}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1845888898}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &877358581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,12 +262,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   animator: {fileID: 0}
   characterController: {fileID: 877358582}
-  speed: 1
+  speed: 10
   turnSpeed: 1
-  Gravity: 9.8
-  jumpSpeed: 15
+  Gravity: 15
+  jumpSpeed: 10
   vSpeed: 0
   jumpKeyCode: 32
+  keyRun: 304
+  speedRun: 1.5
 --- !u!143 &877358582
 CharacterController:
   m_ObjectHideFlags: 0
@@ -286,13 +288,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
+  m_Height: 0
   m_Radius: 0.75
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!1 &1104684062
 GameObject:
   m_ObjectHideFlags: 0
