@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 877358580}
   - component: {fileID: 877358582}
   - component: {fileID: 877358581}
+  - component: {fileID: 877358583}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -327,6 +328,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.18, z: 0}
+--- !u!114 &877358583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877358579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa99c4998acc18848bd94bcb7b41e630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityShoot
+  gunBase: {fileID: 1213502082}
 --- !u!1 &1104684062
 GameObject:
   m_ObjectHideFlags: 0
