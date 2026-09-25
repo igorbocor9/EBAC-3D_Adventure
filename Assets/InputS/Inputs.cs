@@ -100,6 +100,24 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gun1"",
+                    ""type"": ""Button"",
+                    ""id"": ""b516709d-3ebf-42d3-9eb6-458e79af7b88"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gun2"",
+                    ""type"": ""Button"",
+                    ""id"": ""53d24283-bb23-47a5-a4f1-429af15b3c37"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -113,6 +131,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bc4001d-df03-4b7c-8e9c-57e9b84e25b5"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gun1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""142eedb5-e20c-40e8-a937-685394d69d41"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gun2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
+        m_Gameplay_Gun1 = m_Gameplay.FindAction("Gun1", throwIfNotFound: true);
+        m_Gameplay_Gun2 = m_Gameplay.FindAction("Gun2", throwIfNotFound: true);
     }
 
     ~@Inputs()
@@ -203,6 +245,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Shoot;
+    private readonly InputAction m_Gameplay_Gun1;
+    private readonly InputAction m_Gameplay_Gun2;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -218,6 +262,14 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Shoot".
         /// </summary>
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Gun1".
+        /// </summary>
+        public InputAction @Gun1 => m_Wrapper.m_Gameplay_Gun1;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Gun2".
+        /// </summary>
+        public InputAction @Gun2 => m_Wrapper.m_Gameplay_Gun2;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -247,6 +299,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Gun1.started += instance.OnGun1;
+            @Gun1.performed += instance.OnGun1;
+            @Gun1.canceled += instance.OnGun1;
+            @Gun2.started += instance.OnGun2;
+            @Gun2.performed += instance.OnGun2;
+            @Gun2.canceled += instance.OnGun2;
         }
 
         /// <summary>
@@ -261,6 +319,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Gun1.started -= instance.OnGun1;
+            @Gun1.performed -= instance.OnGun1;
+            @Gun1.canceled -= instance.OnGun1;
+            @Gun2.started -= instance.OnGun2;
+            @Gun2.performed -= instance.OnGun2;
+            @Gun2.canceled -= instance.OnGun2;
         }
 
         /// <summary>
@@ -308,5 +372,19 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShoot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Gun1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGun1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Gun2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGun2(InputAction.CallbackContext context);
     }
 }

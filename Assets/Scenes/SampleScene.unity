@@ -390,6 +390,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityShoot
   uiGunUpdaters: []
   gunBase: {fileID: 6740637236463689976, guid: ad1762dfdb5e7684bb25638b7a20040c, type: 3}
+  Guns:
+  - {fileID: 3845428685906691159, guid: 44182ff6e0ece224188d0c0b6a277c76, type: 3}
+  - {fileID: 6740637236463689976, guid: ad1762dfdb5e7684bb25638b7a20040c, type: 3}
   gunPosition: {fileID: 1341232007}
 --- !u!1 &1104684062
 GameObject:
