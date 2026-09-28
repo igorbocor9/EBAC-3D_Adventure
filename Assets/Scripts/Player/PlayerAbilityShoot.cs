@@ -43,7 +43,6 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
     public void ChangeGun(int gun)
     {
-        //gunBase = Guns[gun];
         if (gunBase != Guns[gun])
         {
             Destroy(_currentGun);
