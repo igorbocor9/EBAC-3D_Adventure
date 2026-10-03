@@ -1,29 +1,26 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 
 public class FlashColor : MonoBehaviour
 {
-    public MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer meshRenderer;
 
-    [Header("Setup")]
-    public Color color = Color.red;
-    public float duration = .1f;
-
-    private Color defaultColor;
-
-    private Tween _currTween;
-
-    private void Start()
-    {
-        defaultColor = meshRenderer.material.GetColor("_EmissionColor");
-    }
-
-    [NaughtyAttributes.Button]
+    [NaughtyAttributes.Button("Flash Color")]
     private void Flash()
     {
-        if(!_currTween.IsActive()) 
-            _currTween = meshRenderer.material.DOColor(color, "_EmissionColor", duration).SetLoops(2,LoopType.Yoyo);
+        Material mat = meshRenderer.material;
+
+        Debug.Log("Shader: " + mat.shader.name);
+
+        if (mat.HasProperty("_EmissionColor"))
+        {
+            Debug.Log("Found _EmissionColor");
+
+            mat.EnableKeyword("_EMISSION");
+            mat.SetColor("_EmissionColor", Color.red * 10f);
+        }
+        else
+        {
+            Debug.LogError("THIS MATERIAL DOES NOT HAVE _EmissionColor");
+        }
     }
 }
