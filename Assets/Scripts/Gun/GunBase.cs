@@ -11,10 +11,14 @@ public class GunBase : MonoBehaviour
     public float timeBetweenShoot = 0.3f;
     public float speed = 50f;
 
+    public bool changingGun = false;
+
     private Coroutine _currentCoroutine;
 
     protected virtual IEnumerator ShootCoroutine()
     {
+        if(changingGun) yield break;
+
         while (true)
         {
             Shoot();

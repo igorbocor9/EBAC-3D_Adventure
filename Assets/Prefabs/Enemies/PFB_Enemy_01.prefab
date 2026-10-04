@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7987256930857046}
   - component: {fileID: 7556382420734035147}
   - component: {fileID: 5883211029710463917}
+  - component: {fileID: 1606328010327589282}
   m_Layer: 0
   m_Name: PFB_Enemy_01
   m_TagString: Untagged
@@ -46,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40388859ab11754a9ad0800106e6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyBase
-  collider: {fileID: 0}
+  collider: {fileID: 5883211029710463917}
   startLife: 10
   _currentLife: 0
-  _animationBase: {fileID: 0}
+  _animationBase: {fileID: 1606328010327589282}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
@@ -72,8 +73,30 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.9976459, y: 3.8537796, z: 3.0547228}
+  m_Center: {x: 0.25684017, y: 1.9405705, z: 0.11415243}
+--- !u!114 &1606328010327589282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548211965567313956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de44129efa467f24d8b4c9d8a7d64a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBase
+  animator: {fileID: 2178921926272242515}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 4
+    trigger: Death
+  - animationType: 3
+    trigger: Attack
 --- !u!1 &7586843284765733965
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,15 +143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115776127002297597, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.73671
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8115776127002297597, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8115776127002297597, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8115776127002297597, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -170,5 +193,10 @@ PrefabInstance:
 --- !u!4 &707654513095933029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115776127002297597, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
+  m_PrefabInstance: {fileID: 8751373017991985304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2178921926272242515 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7443898874300591051, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
   m_PrefabInstance: {fileID: 8751373017991985304}
   m_PrefabAsset: {fileID: 0}

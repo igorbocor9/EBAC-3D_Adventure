@@ -46,7 +46,8 @@ namespace Enemy
         protected virtual void OnKill()
         {
             if(collider != null) collider.enabled = false;
-            Destroy(gameObject);
+            Destroy(gameObject, 3f);
+            PlayAnimationByTrigger(AnimationType.DEATH);
         }
 
         public void OnDamage(float f)
@@ -78,10 +79,6 @@ namespace Enemy
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.T))
-            {
-                OnDamage(5f);
-            }
         }
     }
 }

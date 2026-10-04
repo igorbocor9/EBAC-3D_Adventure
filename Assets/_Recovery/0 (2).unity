@@ -394,6 +394,38 @@ MonoBehaviour:
   - {fileID: 3845428685906691159, guid: 44182ff6e0ece224188d0c0b6a277c76, type: 3}
   - {fileID: 6740637236463689976, guid: ad1762dfdb5e7684bb25638b7a20040c, type: 3}
   gunPosition: {fileID: 1341232007}
+--- !u!1 &938939275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4548211965567313956, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+  m_PrefabInstance: {fileID: 4461635400273385404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &938939277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938939275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de44129efa467f24d8b4c9d8a7d64a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBase
+  animator: {fileID: 0}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 4
+    trigger: Death
+  - animationType: 3
+    trigger: Attack
+--- !u!65 &938939278 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5883211029710463917, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+  m_PrefabInstance: {fileID: 4461635400273385404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1053511624
 Material:
   serializedVersion: 8
@@ -1348,15 +1380,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.04
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.84
+      value: 12.22
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1394,12 +1426,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Enemy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7556382420734035147, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 938939278}
+    - target: {fileID: 7556382420734035147, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      propertyPath: _animationBase
+      value: 
+      objectReference: {fileID: 938939277}
     m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 4162192663033714643, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+    - {fileID: 8985759307401313368, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4548211965567313956, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 938939277}
   m_SourcePrefab: {fileID: 100100000, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

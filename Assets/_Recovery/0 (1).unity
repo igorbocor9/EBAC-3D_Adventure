@@ -198,6 +198,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &74390607 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2178921926272242515, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+  m_PrefabInstance: {fileID: 4461635400273385404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &244731950
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +399,22 @@ MonoBehaviour:
   - {fileID: 3845428685906691159, guid: 44182ff6e0ece224188d0c0b6a277c76, type: 3}
   - {fileID: 6740637236463689976, guid: ad1762dfdb5e7684bb25638b7a20040c, type: 3}
   gunPosition: {fileID: 1341232007}
+--- !u!114 &938939277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1606328010327589282, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+  m_PrefabInstance: {fileID: 4461635400273385404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de44129efa467f24d8b4c9d8a7d64a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBase
+--- !u!65 &938939278 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5883211029710463917, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+  m_PrefabInstance: {fileID: 4461635400273385404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1053511624
 Material:
   serializedVersion: 8
@@ -1348,15 +1369,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.84
+      value: 8.99
       objectReference: {fileID: 0}
     - target: {fileID: 7987256930857046, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1386,6 +1407,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1606328010327589282, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 74390607}
     - target: {fileID: 1844563639346333450, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1394,9 +1419,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Enemy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7556382420734035147, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 938939278}
+    - target: {fileID: 7556382420734035147, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+      propertyPath: _animationBase
+      value: 
+      objectReference: {fileID: 938939277}
     m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 4162192663033714643, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
+    - {fileID: 8985759307401313368, guid: 2889a0e9a1b4fa643940a58745ddfc7b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -45,6 +45,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         if (gunBase != Guns[gun])
         {
+            gunBase.changingGun = true;
             Destroy(_currentGun);
             gunBase = Guns[gun];
             CreateGun();
