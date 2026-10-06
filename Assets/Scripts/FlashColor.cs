@@ -17,16 +17,21 @@ public class FlashColor : MonoBehaviour
 
     private void Start()
     {
-        defaultColor = meshRenderer.material.GetColor("_EmissionColor");
+        defaultColor = meshRenderer.material.color;
+    }
+
+    private IEnumerator FlashCoroutine()
+    {
+        meshRenderer.sharedMaterial.color = color;
+        yield return new WaitForSeconds(duration);
+        meshRenderer.sharedMaterial.color = defaultColor;
     }
 
     [NaughtyAttributes.Button]
-    private void Flash()
+    public void Flash()
     {
-        if(!_currTween.IsActive()) 
-        {
-            _currTween = meshRenderer.material.DOColor(color, "_EmissionColor", duration).SetLoops(2,LoopType.Yoyo);
-        }
+        StopAllCoroutines();
+        StartCoroutine(FlashCoroutine());
             
     }
 }
