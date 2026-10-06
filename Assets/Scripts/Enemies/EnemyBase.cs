@@ -89,8 +89,5 @@ namespace Enemy
         }
         #endregion
 
-        private void Update()
-        {
-        }
     }
 }

@@ -5383,7 +5383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7987256930857046}
-  - component: {fileID: 7556382420734035147}
+  - component: {fileID: 5210681414854594589}
   - component: {fileID: 5883211029710463917}
   - component: {fileID: 1606328010327589282}
   m_Layer: 0
@@ -5410,7 +5410,7 @@ Transform:
   - {fileID: 6262705616864306929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7556382420734035147
+--- !u!114 &5210681414854594589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5419,9 +5419,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4548211965567313956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40388859ab11754a9ad0800106e6a32, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bf42f99a31ba834db42413f8fef9073, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyBase
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyWalk
   collider: {fileID: 5883211029710463917}
   flashColor: {fileID: 8513420888000369490}
   particleSystem: {fileID: 3465898692279930968}
@@ -5431,6 +5431,11 @@ MonoBehaviour:
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 3
+  minDistance: 1
 --- !u!65 &5883211029710463917
 BoxCollider:
   m_ObjectHideFlags: 0
