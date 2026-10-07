@@ -5386,6 +5386,7 @@ GameObject:
   - component: {fileID: 5210681414854594589}
   - component: {fileID: 5883211029710463917}
   - component: {fileID: 1606328010327589282}
+  - component: {fileID: 3752619869163735353}
   m_Layer: 0
   m_Name: PFB_Enemy_01
   m_TagString: Untagged
@@ -5479,6 +5480,33 @@ MonoBehaviour:
     trigger: Death
   - animationType: 3
     trigger: Attack
+--- !u!54 &3752619869163735353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548211965567313956}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4730518722658474044
 GameObject:
   m_ObjectHideFlags: 0

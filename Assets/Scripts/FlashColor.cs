@@ -6,6 +6,7 @@ using DG.Tweening;
 public class FlashColor : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
 
     [Header("Setup")]
     public Color color = Color.red;
@@ -17,14 +18,30 @@ public class FlashColor : MonoBehaviour
 
     private void Start()
     {
-        defaultColor = meshRenderer.material.color;
+        if (meshRenderer != null)
+        {
+            defaultColor = meshRenderer.material.color;
+        }
+        else if (skinnedMeshRenderer != null)
+        {
+            defaultColor = skinnedMeshRenderer.material.color;
+        }
     }
 
     private IEnumerator FlashCoroutine()
     {
-        meshRenderer.sharedMaterial.color = color;
-        yield return new WaitForSeconds(duration);
-        meshRenderer.sharedMaterial.color = defaultColor;
+        if (meshRenderer != null)
+        {
+            meshRenderer.sharedMaterial.color = color;
+            yield return new WaitForSeconds(duration);
+            meshRenderer.sharedMaterial.color = defaultColor;
+        }
+        else if (skinnedMeshRenderer != null)
+        {
+            skinnedMeshRenderer.material.color = color;
+            yield return new WaitForSeconds(duration);
+            skinnedMeshRenderer.material.color = defaultColor;
+        }
     }
 
     [NaughtyAttributes.Button]

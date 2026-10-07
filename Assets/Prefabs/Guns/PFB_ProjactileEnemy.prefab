@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: -1090108088715120964}
   - component: {fileID: -1455237493951320509}
   m_Layer: 0
-  m_Name: PFB_Projactile
+  m_Name: PFB_ProjactileEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   damageAmount: 1
   speed: 50
   tagsToHit:
-  - Enemy
+  - Player
 --- !u!54 &-1090108088715120964
 Rigidbody:
   m_ObjectHideFlags: 0
