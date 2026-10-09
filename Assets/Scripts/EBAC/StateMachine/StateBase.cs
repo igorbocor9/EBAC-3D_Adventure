@@ -7,7 +7,7 @@ namespace EBAC.StateMachine
     public class StateBase
     {
         protected Player playerbase = Object.FindObjectOfType(typeof(Player)) as Player;
-        public virtual void OnStateEnter()
+        public virtual void OnStateEnter(params object[] objs)
         {
             Debug.Log("OnStateEnter");
         }
