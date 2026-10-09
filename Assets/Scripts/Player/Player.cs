@@ -35,17 +35,42 @@ public class Player : MonoBehaviour, IDamageable
 
     void Update()
     {
-        transform.Rotate(0f, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0f);
-
         var inputAxisVertical = Input.GetAxis("Vertical");
-        var speedVector = transform.forward * inputAxisVertical * speed;   
+        var speedVectorVertical = transform.forward * inputAxisVertical * speed;   
+        var inputAxisHorizontal = Input.GetAxis("Horizontal");
+        var speedVectorHorizontal = transform.right * inputAxisHorizontal * speed;  
 
-        var isWalking = inputAxisVertical != 0;        
+        if (inputAxisHorizontal != 0)        
+        {            
+            if (inputAxisHorizontal > 0)            
+            {                
+                animator.transform.rotation = Quaternion.Euler(0, 90, 0);           
+            }            
+            else if (inputAxisHorizontal < 0)            
+            {                
+                animator.transform.rotation = Quaternion.Euler(0, -90, 0);     
+            }     
+        }
+
+        if (inputAxisVertical != 0)        
+        {            
+            if (inputAxisVertical > 0)            
+            {                
+                animator.transform.rotation = Quaternion.Euler(0, 0, 0);           
+            }            
+            else if (inputAxisVertical < 0)            
+            {                
+                animator.transform.rotation = Quaternion.Euler(0, 180, 0);     
+            }     
+        }
+
+        var isWalking = inputAxisVertical != 0 || inputAxisHorizontal != 0;        
         if(isWalking)        
         {            
             if(Input.GetKey(keyRun))            
             {                
-                speedVector *= speedRun;                
+                speedVectorVertical *= speedRun;
+                speedVectorHorizontal *= speedRun;                
                 animator.speed = speedRun;            
             }            
             else            
@@ -64,10 +89,11 @@ public class Player : MonoBehaviour, IDamageable
         }     
         
         vSpeed  -= Gravity * Time.deltaTime;        
-        speedVector.y = vSpeed;        
+        speedVectorVertical.y = vSpeed;        
         
-        characterController.Move(speedVector * Time.deltaTime);    
+        characterController.Move(speedVectorVertical * Time.deltaTime);    
+        characterController.Move(speedVectorHorizontal * Time.deltaTime);   
 
-        animator.SetBool("Run", inputAxisVertical != 0);
+        animator.SetBool("Run", inputAxisVertical != 0 || inputAxisHorizontal != 0);
     }
 }
