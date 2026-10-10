@@ -1127,6 +1127,7 @@ GameObject:
   - component: {fileID: 877358581}
   - component: {fileID: 877358583}
   - component: {fileID: 877358584}
+  - component: {fileID: 877358585}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1182,6 +1183,7 @@ MonoBehaviour:
   - {fileID: 1981893400}
   - {fileID: 1200622785}
   - {fileID: 236572629}
+  healthBase: {fileID: 877358585}
 --- !u!143 &877358582
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1246,6 +1248,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 3.6736996, z: 2.924051}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &877358585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877358579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594e3d38cef8a93428c12815fcb72d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
+  startLife: 10
+  destroyOnKill: 0
+  _currentLife: 0
 --- !u!114 &994958196 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2146858611411162472, guid: 31292fd748343f8488e94bda0fa8e82e, type: 3}

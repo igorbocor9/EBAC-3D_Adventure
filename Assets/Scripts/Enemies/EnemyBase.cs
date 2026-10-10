@@ -110,7 +110,7 @@ namespace Enemy
             Debug.Log($"Player took damage!");
             if (player != null)
             {
-                player.Damage(1f);
+                player.healthBase.Damage(1f);
             }
         }
 
