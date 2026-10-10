@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour//, IDamageable
 {
+    public List<Collider> colliders;
     public Animator animator;
     public CharacterController characterController;
     public float speed = 1f;
@@ -37,6 +38,13 @@ public class Player : MonoBehaviour//, IDamageable
         OnValidate();
 
         healthBase.OnDamage += Damage;
+        healthBase.OnKill += OnKill;
+    }
+
+    private void OnKill(HealthBase h)
+    {
+        animator.SetTrigger("Death");
+        colliders.ForEach(c => c.enabled = false);
     }
 
     public void Damage(HealthBase h)

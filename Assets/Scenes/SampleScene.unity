@@ -1164,6 +1164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572c401fb6397964d93d92adcaef5265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  colliders:
+  - {fileID: 877358582}
+  - {fileID: 877358584}
   animator: {fileID: 1220604720}
   characterController: {fileID: 877358582}
   speed: 10
