@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIGunUpdater : MonoBehaviour
+public class UIFillUpdater : MonoBehaviour
 {
-
     public Image uiImage;
 
     [Header("Animation")]
@@ -28,6 +27,6 @@ public class UIGunUpdater : MonoBehaviour
     public void UpdateValue(float max, float current)
     {
         if (_currTween != null) _currTween.Kill();
-        uiImage.DOFillAmount(1- (current / max), duration).SetEase(ease);
+        _currTween = uiImage.DOFillAmount(1- (current / max), duration).SetEase(ease);
     }
 }

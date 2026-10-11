@@ -7,6 +7,7 @@ public class Player : MonoBehaviour//, IDamageable
     public List<Collider> colliders;
     public Animator animator;
     public CharacterController characterController;
+    public GameObject Pivot;
     public float speed = 1f;
     public float turnSpeed = 1f;
     public float Gravity = -9.8f;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour//, IDamageable
     [Header("Flash")]
     public List<FlashColor> flashColors;
 
+    [Header("Health")]
     public HealthBase healthBase;
 
     private void OnValidate()
@@ -65,30 +67,6 @@ public class Player : MonoBehaviour//, IDamageable
         var inputAxisHorizontal = Input.GetAxis("Horizontal");
         var speedVectorHorizontal = transform.right * inputAxisHorizontal * speed;  
 
-        if (inputAxisHorizontal != 0)        
-        {            
-            if (inputAxisHorizontal > 0)            
-            {                
-                animator.transform.rotation = Quaternion.Euler(0, 90, 0);           
-            }            
-            else if (inputAxisHorizontal < 0)            
-            {                
-                animator.transform.rotation = Quaternion.Euler(0, -90, 0);     
-            }     
-        }
-
-        if (inputAxisVertical != 0)        
-        {            
-            if (inputAxisVertical > 0)            
-            {                
-                animator.transform.rotation = Quaternion.Euler(0, 0, 0);           
-            }            
-            else if (inputAxisVertical < 0)            
-            {                
-                animator.transform.rotation = Quaternion.Euler(0, 180, 0);     
-            }     
-        }
-
         var isWalking = inputAxisVertical != 0 || inputAxisHorizontal != 0;        
         if(isWalking)        
         {            
@@ -116,8 +94,35 @@ public class Player : MonoBehaviour//, IDamageable
         vSpeed  -= Gravity * Time.deltaTime;        
         speedVectorVertical.y = vSpeed;        
         
-        characterController.Move(speedVectorVertical * Time.deltaTime);    
-        characterController.Move(speedVectorHorizontal * Time.deltaTime);   
+        if (characterController.enabled)
+        {
+            characterController.Move(speedVectorVertical * Time.deltaTime);    
+            characterController.Move(speedVectorHorizontal * Time.deltaTime);  
+
+            if (inputAxisHorizontal != 0)        
+            {            
+                if (inputAxisHorizontal > 0)            
+                {                
+                    Pivot.transform.rotation = Quaternion.Euler(0, 90, 0);           
+                }            
+                else if (inputAxisHorizontal < 0)            
+                {                
+                    Pivot.transform.rotation = Quaternion.Euler(0, -90, 0);     
+                }     
+            }
+
+            if (inputAxisVertical != 0)        
+            {            
+                if (inputAxisVertical > 0)            
+                {                
+                    Pivot.transform.rotation = Quaternion.Euler(0, 0, 0);           
+                }            
+                else if (inputAxisVertical < 0)            
+                {                
+                    Pivot.transform.rotation = Quaternion.Euler(0, 180, 0);     
+                }     
+            } 
+        }
 
         animator.SetBool("Run", inputAxisVertical != 0 || inputAxisHorizontal != 0);
     }
