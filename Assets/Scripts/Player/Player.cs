@@ -47,6 +47,20 @@ public class Player : MonoBehaviour//, IDamageable
     {
         animator.SetTrigger("Death");
         colliders.ForEach(c => c.enabled = false);
+        Invoke(nameof(Revive), 3f);
+    }
+
+    private void TurnOnColliders()
+    {
+        colliders.ForEach(c => c.enabled = true);
+    }
+
+    private void Revive()
+    {
+        animator.SetTrigger("Revive");
+        Invoke(nameof(TurnOnColliders), .1f);
+        healthBase.ResetLife();
+        Respawn();
     }
 
     public void Damage(HealthBase h)
@@ -59,7 +73,7 @@ public class Player : MonoBehaviour//, IDamageable
     {
         //Damage(damage);
     }
-
+    
     void Update()
     {
         var inputAxisVertical = Input.GetAxis("Vertical");
@@ -81,7 +95,7 @@ public class Player : MonoBehaviour//, IDamageable
                 animator.speed = 1;            
             }        
         }
-
+        Debug.Log(characterController.isGrounded);
         if(characterController.isGrounded)        
         {            
             vSpeed = 0;            
@@ -125,5 +139,16 @@ public class Player : MonoBehaviour//, IDamageable
         }
 
         animator.SetBool("Run", inputAxisVertical != 0 || inputAxisHorizontal != 0);
+    }
+
+    [NaughtyAttributes.Button("respawn")]
+    private void Respawn()
+    {
+        if (CheckpointManager.Instance.HasCheckpoint())
+        {
+            var lastCheckpointPosition = CheckpointManager.Instance.GetLastCheckpointPosition();
+            lastCheckpointPosition.y += 1f;
+            transform.position = lastCheckpointPosition;
+        }
     }
 }

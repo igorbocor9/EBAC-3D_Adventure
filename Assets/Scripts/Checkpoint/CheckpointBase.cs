@@ -12,7 +12,7 @@ public class CheckpointBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!isActive && !other.CompareTag("Player"))
+        if(!isActive && other.CompareTag("Player"))
         {
             CheckCheckpoint();
         }
@@ -38,10 +38,12 @@ public class CheckpointBase : MonoBehaviour
 
     private void SaveCheckpoint()
     {
-        if (PlayerPrefs.GetInt(checkpointKey, 0) > Key)
+        /*if (PlayerPrefs.GetInt(checkpointKey, 0) > Key)
         {
             PlayerPrefs.SetInt(checkpointKey, Key);
-        }
+        }*/
+
+        CheckpointManager.Instance.SaveCheckpoint(Key);
 
         isActive = true;
     }
