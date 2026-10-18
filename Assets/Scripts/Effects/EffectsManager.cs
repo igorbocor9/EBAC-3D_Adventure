@@ -5,7 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class EffectsManager : MonoBehaviour
 {
-    public PostProcessVolume processVolume;
+    public UnityEngine.Rendering.Volume processVolume;
     [SerializeField] private Vignette _vignette;
 
     [NaughtyAttributes.Button]
