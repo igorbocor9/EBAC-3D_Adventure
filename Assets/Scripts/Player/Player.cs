@@ -66,6 +66,7 @@ public class Player : MonoBehaviour//, IDamageable
     public void Damage(HealthBase h)
     {
         flashColors.ForEach(flashColor => flashColor.Flash());
+        EffectsManager.Instance.ChangeVignette();
         
     }
 
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour//, IDamageable
                 animator.speed = 1;            
             }        
         }
-        Debug.Log(characterController.isGrounded);
+        
         if(characterController.isGrounded)        
         {            
             vSpeed = 0;            

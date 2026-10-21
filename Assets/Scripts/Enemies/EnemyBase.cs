@@ -107,7 +107,7 @@ namespace Enemy
         private void OnCollisionEnter(Collision collision)
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            Debug.Log($"Player took damage!");
+            
             if (player != null)
             {
                 player.healthBase.Damage(1f);
