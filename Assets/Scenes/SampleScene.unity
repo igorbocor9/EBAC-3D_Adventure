@@ -130,115 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aeb37a2c7dab347a6576aee92f0c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashColor
---- !u!1 &10656352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 10656356}
-  - component: {fileID: 10656353}
-  - component: {fileID: 10656355}
-  - component: {fileID: 10656354}
-  m_Layer: 3
-  m_Name: CinemachineCamera (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &10656353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10656352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
-  Priority:
-    Enabled: 1
-    m_Value: 5
-  OutputChannel: 1
-  StandbyUpdate: 2
-  m_StreamingVersion: 20241001
-  m_LegacyPriority: 0
-  Target:
-    TrackingTarget: {fileID: 877358580}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
-  Lens:
-    FieldOfView: 60.000004
-    OrthographicSize: 5
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
-    Dutch: 0
-    ModeOverride: 0
-    PhysicalProperties:
-      GateFit: 2
-      SensorSize: {x: 21.946, y: 16.002}
-      LensShift: {x: 0, y: 0}
-      FocusDistance: 10
-      Iso: 200
-      ShutterSpeed: 0.005
-      Aperture: 16
-      BladeCount: 5
-      Curvature: {x: 2, y: 11}
-      BarrelClipping: 0.25
-      Anamorphism: 0
-  BlendHint: 0
---- !u!114 &10656354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10656352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 0, z: 38}
---- !u!114 &10656355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10656352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
-  TrackerSettings:
-    BindingMode: 2
-    PositionDamping: {x: 0, y: 1, z: 1}
-    AngularDampingMode: 0
-    RotationDamping: {x: 0, y: 2.87, z: 5.04}
-    QuaternionDamping: 1
-  FollowOffset: {x: -0.05, y: 2.78, z: -11.97}
---- !u!4 &10656356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10656352}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.027784452, y: 0.00050010683, z: -0.000013900562, w: 0.9996138}
-  m_LocalPosition: {x: 9.53255, y: 4.37471, z: -20.109539}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 397927491}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44552331
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +557,8 @@ GameObject:
   - component: {fileID: 244731953}
   - component: {fileID: 244731952}
   - component: {fileID: 244731951}
+  - component: {fileID: 244731955}
+  - component: {fileID: 244731954}
   m_Layer: 3
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -750,6 +643,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 397927491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &244731954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244731950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47701a41b4e75c94682c8d6e9f7a9a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShakeCamera
+  virtualCamera: {fileID: 244731952}
+  noise: {fileID: 244731955}
+  shakeTime: 0.3
+  amplitude: 3
+  frequency: 3
+  time: 0.2
+--- !u!114 &244731955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244731950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &278713133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +973,7 @@ MonoBehaviour:
   LayerIndex: 0
   Instructions:
   - FullHash: 1932378568
-    Camera: {fileID: 10656353}
+    Camera: {fileID: 244731952}
     ActivateAfter: 0
     MinDuration: 0
   - FullHash: -757307838
@@ -1082,7 +1010,6 @@ Transform:
   m_Children:
   - {fileID: 373196843}
   - {fileID: 244731953}
-  - {fileID: 10656356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416642355
@@ -4397,7 +4324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8687419545608318559, guid: 31292fd748343f8488e94bda0fa8e82e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8687419545608318559, guid: 31292fd748343f8488e94bda0fa8e82e, type: 3}
       propertyPath: m_TagString

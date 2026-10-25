@@ -67,6 +67,7 @@ public class Player : MonoBehaviour//, IDamageable
     {
         flashColors.ForEach(flashColor => flashColor.Flash());
         EffectsManager.Instance.ChangeVignette();
+        ShakeCamera.Instance.Shake();
         
     }
 
