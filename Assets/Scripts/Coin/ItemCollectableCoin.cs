@@ -1,4 +1,5 @@
 using UnityEngine;
+using Items;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
@@ -7,7 +8,7 @@ public class ItemCollectableCoin : ItemCollectableBase
     protected override void OnCollect()
     {
         base.OnCollect();
-        ItemManager.Instance.AddCoins();
+        ItemManager.Instance.AddByType(ItemType.COIN);
         collider2D.enabled = false;
     }
 
