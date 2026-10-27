@@ -1,56 +1,70 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-public class ItemCollectableBase : MonoBehaviour
+namespace Items
 {
-    public string compareTag = "Player";
-    public ParticleSystem particleSystem;
-    public float timeToHide = 3f;
-    public GameObject graphicItem;
-
-    [Header("Sounds")]
-    public AudioSource audioSource;
-
-    private void Awake()
+    public class ItemCollectableBase : MonoBehaviour
     {
-        if (particleSystem != null)
-        {
-            //particleSystem.transform.SetParent(null);
-        }
-    }
+        public ItemType itemType;
+        public string compareTag = "Player";
+        public Collider collider;
+        public ParticleSystem particleSystem;
+        public float timeToHide = 3f;
+        public GameObject graphicItem;
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag(compareTag))
-        {
-            Collect();
-        }
-    }
+        [Header("Sounds")]
+        public AudioSource audioSource;
 
-    protected virtual void Collect()
-    {
-        if (graphicItem != null)
+        private void Awake()
         {
-            graphicItem.SetActive(false);
-        }
-        Invoke("HideObject", timeToHide);
-        OnCollect();
-    }
-
-    protected virtual void OnCollect()
-    {
-        if (particleSystem != null)
-        {
-            particleSystem.Play();
+            if (particleSystem != null)
+            {
+                //particleSystem.transform.SetParent(null);
+            }
         }
 
-        if (audioSource != null)
+        private void OnTriggerEnter(Collider collision)
         {
-            audioSource.Play();
+            if (collision.CompareTag(compareTag))
+            {
+                Collect();
+            }
         }
-    }
 
-    private void HideObject()
-    {
-        gameObject.SetActive(false);
+        protected virtual void Collect()
+        {
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
+            
+            if (graphicItem != null)
+            {
+                graphicItem.SetActive(false);
+            }
+            Invoke("HideObject", timeToHide);
+            OnCollect();
+        }
+
+        protected virtual void OnCollect()
+        {
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
+            ItemManager.Instance.AddByType(itemType);
+        }
+
+        private void HideObject()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
