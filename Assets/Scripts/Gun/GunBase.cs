@@ -33,7 +33,7 @@ public class GunBase : MonoBehaviour
         projectile.transform.rotation = positionToShoot.rotation;
         projectile.speed = speed;
 
-        ShakeCamera.Instance.Shake();
+        ShakeCamera.Instance.Shake(1f,1f,.2f);
     }
 
     public void StartShoot()
