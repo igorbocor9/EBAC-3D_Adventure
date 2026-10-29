@@ -1667,7 +1667,8 @@ MonoBehaviour:
   startLife: 10
   destroyOnKill: 0
   _currentLife: 0
-  uiFillUpdater: []
+  uiFillUpdater:
+  - {fileID: 1168517516}
 --- !u!54 &877358586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1785,6 +1786,52 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1034277116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034277118}
+  - component: {fileID: 1034277117}
+  m_Layer: 0
+  m_Name: ActionLifePack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1034277117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034277116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d1f3cfa6921ff47bc5b25df0007c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionLifePack
+  keyCode: 102
+  soInt: {fileID: 11400000, guid: 7b06e1693d05fd94dafb72c0d9080303, type: 2}
+--- !u!4 &1034277118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034277116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.36851, y: 313.5828, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1056699326 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4569798190614996439, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
@@ -4572,7 +4619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8687419545608318559, guid: 31292fd748343f8488e94bda0fa8e82e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8687419545608318559, guid: 31292fd748343f8488e94bda0fa8e82e, type: 3}
       propertyPath: m_TagString
@@ -4677,6 +4724,10 @@ PrefabInstance:
       propertyPath: itemSetups.Array.data[0].icon
       value: 
       objectReference: {fileID: 21300000, guid: de085835d504f71449418b1ac8036134, type: 3}
+    - target: {fileID: 4614122362016838844, guid: 4508e11b663ddad449884cf866e9b414, type: 3}
+      propertyPath: itemSetups.Array.data[1].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: e7f0ecb80e4e24c4b9e71156ace79242, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4772,3 +4823,4 @@ SceneRoots:
   - {fileID: 864319339}
   - {fileID: 4973135267982216840}
   - {fileID: 1641662311}
+  - {fileID: 1034277118}

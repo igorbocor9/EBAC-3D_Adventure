@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Core.Singleton;
 
-public class Player : MonoBehaviour//, IDamageable
+public class Player : Singleton<Player>//, IDamageable
 {
     public List<Collider> colliders;
     public Animator animator;
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour//, IDamageable
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         OnValidate();
 
