@@ -154,4 +154,17 @@ public class Player : Singleton<Player>//, IDamageable
             transform.position = lastCheckpointPosition;
         }
     }
+
+    public void ChangeSpeed(float speed, float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+
+    private IEnumerator ChangeSpeedCoroutine(float speed, float duration)
+    {
+        var originalSpeed = this.speed;
+        this.speed = speed;
+        yield return new WaitForSeconds(duration);
+        this.speed = originalSpeed;
+    }
 }
