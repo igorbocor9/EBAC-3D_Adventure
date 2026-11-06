@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Core.Singleton;
+using Cloth;
 
 public class Player : Singleton<Player>//, IDamageable
 {
@@ -27,6 +28,8 @@ public class Player : Singleton<Player>//, IDamageable
 
     [Header("Health")]
     public HealthBase healthBase;
+
+    [SerializeField] private ClothChange _clothChanger;
 
     private void OnValidate()
     {
@@ -163,8 +166,20 @@ public class Player : Singleton<Player>//, IDamageable
     private IEnumerator ChangeSpeedCoroutine(float speed, float duration)
     {
         var originalSpeed = this.speed;
-        this.speed = speed;
+        this.speed = this.speed*speed;
         yield return new WaitForSeconds(duration);
         this.speed = originalSpeed;
     }
+
+    public void ChangeTexture(ClothSetup setup, float duration)
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+    }
+
+    private IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
+    {
+        _clothChanger.ChangeTexture(setup);
+        yield return new WaitForSeconds(duration);
+        _clothChanger.ResetTexture();
+    } 
 }
