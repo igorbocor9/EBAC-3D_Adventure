@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Cloth;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
@@ -12,6 +13,8 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
     public List<UIFillUpdater> uiFillUpdater;
+
+    public float damageMultiply = 1f;
 
     public void Awake()
     {
@@ -47,7 +50,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public void Damage(float damage)
     {
-        _currentLife -= damage;
+        _currentLife -= damage * damageMultiply;
         if (_currentLife <= 0)
         {
             Kill();
@@ -68,4 +71,16 @@ public class HealthBase : MonoBehaviour, IDamageable
             uiFillUpdater.ForEach(i => i.UpdateValue((float)_currentLife / startLife));
         }
     }
+
+    public void ChangeDamage(float damageMultiply, float duration)
+    {
+        StartCoroutine(ChangeDamageCoroutine(damageMultiply, duration));
+    }
+
+    private IEnumerator ChangeDamageCoroutine(float damageMultiply, float duration)
+    {
+        this.damageMultiply = damageMultiply;
+        yield return new WaitForSeconds(duration);
+        this.damageMultiply = 1f;
+    } 
 }
