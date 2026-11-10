@@ -279,34 +279,6 @@ Transform:
   - {fileID: 1640652539}
   m_Father: {fileID: 864319339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93971137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
-  m_Name: Vignette(Clone)
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Vignette
-  active: 1
-  color:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0.35533398, b: 0.35533398, a: 1}
-  center:
-    m_OverrideState: 0
-    m_Value: {x: 0.5, y: 0.5}
-  intensity:
-    m_OverrideState: 0
-    m_Value: 0
-  smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
-  rounded:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!1 &116514136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,11 +1116,11 @@ MonoBehaviour:
   AnimatedTarget: {fileID: 1220604720}
   LayerIndex: 0
   Instructions:
-  - FullHash: 1932378568
+  - FullHash: 1432961145
     Camera: {fileID: 244731952}
     ActivateAfter: 0
     MinDuration: 0
-  - FullHash: -757307838
+  - FullHash: -827840423
     Camera: {fileID: 244731952}
     ActivateAfter: 0
     MinDuration: 0
@@ -1157,13 +1129,17 @@ MonoBehaviour:
     ActivateAfter: 0
     MinDuration: 0
   HashOfParent:
-  - Hash: 1251315677
+  - Hash: 1432961145
     HashOfParent: 756556552
-  - Hash: 1932378568
-    HashOfParent: 756556552
-  - Hash: -757307838
+  - Hash: -827840423
     HashOfParent: 756556552
   - Hash: 306637226
+    HashOfParent: 756556552
+  - Hash: -1454647999
+    HashOfParent: 756556552
+  - Hash: 197813724
+    HashOfParent: 756556552
+  - Hash: 1353449261
     HashOfParent: 756556552
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}
@@ -2055,10 +2031,12 @@ MonoBehaviour:
   animator: {fileID: 1220604720}
   characterController: {fileID: 877358582}
   Pivot: {fileID: 1329346869}
+  cameraTransform: {fileID: 244731953}
+  baseSpeed: 10
   speed: 10
   turnSpeed: 1
-  Gravity: 15
-  jumpSpeed: 10
+  Gravity: 9
+  jumpSpeed: 4.5
   vSpeed: 0
   jumpKeyCode: 32
   keyRun: 304
@@ -3726,7 +3704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectsManager
   processVolume: {fileID: 2087522293}
-  _vignette: {fileID: 93971137}
+  _vignette: {fileID: 0}
   duration: 0.1
 --- !u!1 &1458077820
 GameObject:
@@ -4155,6 +4133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Astronaut Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7193805671317595757, guid: 89e20167823a30d459856414377997d1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 35b0dc131286aa14f931409932710833, type: 2}
     - target: {fileID: 8517986018976716636, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

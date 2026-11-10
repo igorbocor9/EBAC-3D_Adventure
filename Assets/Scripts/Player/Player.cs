@@ -10,12 +10,18 @@ public class Player : Singleton<Player>//, IDamageable
     public Animator animator;
     public CharacterController characterController;
     public GameObject Pivot;
+
+    public Transform cameraTransform;
+
+    public float baseSpeed = 1f;
     public float speed = 1f;
     public float turnSpeed = 1f;
     public float Gravity = -9.8f;
     public float jumpSpeed = 15f;
 
     public float vSpeed = 0f;
+
+    public Vector3 MoveDirection { get; private set; }
 
     public KeyCode jumpKeyCode = KeyCode.Space;
 
@@ -82,26 +88,68 @@ public class Player : Singleton<Player>//, IDamageable
     
     void Update()
     {
-        var inputAxisVertical = Input.GetAxis("Vertical");
-        var speedVectorVertical = transform.forward * inputAxisVertical * speed;   
-        var inputAxisHorizontal = Input.GetAxis("Horizontal");
-        var speedVectorHorizontal = transform.right * inputAxisHorizontal * speed;  
+        
+        if (characterController.enabled)
+        {
+            Walk();
+            Jump();
 
-        var isWalking = inputAxisVertical != 0 || inputAxisHorizontal != 0;        
+
+            characterController.Move(MoveDirection * speed * Time.deltaTime);
+        }
+    }
+
+    private void Walk()
+    {
+        
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDirection = forward * vertical + right * horizontal;
+
+        moveDirection.Normalize();
+
+        MoveDirection = moveDirection;
+
+        if (moveDirection.magnitude > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                10f * Time.deltaTime
+            );
+        }
+
+        var isWalking = vertical != 0 || horizontal != 0;        
         if(isWalking)        
         {            
-            if(Input.GetKey(keyRun))            
+            if(Input.GetKeyDown(keyRun))            
             {                
-                speedVectorVertical *= speedRun;
-                speedVectorHorizontal *= speedRun;                
+                speed = speed * speedRun;            
                 animator.speed = speedRun;            
             }            
-            else            
+            else if (Input.GetKeyUp(keyRun))    
             {                
+                speed = baseSpeed;
                 animator.speed = 1;            
             }        
         }
-        
+        animator.SetBool("Run", vertical != 0 || horizontal != 0);
+    }
+
+    private void Jump()
+    {
         if(characterController.isGrounded)        
         {            
             vSpeed = 0;            
@@ -111,40 +159,11 @@ public class Player : Singleton<Player>//, IDamageable
             }        
         }     
         
-        vSpeed  -= Gravity * Time.deltaTime;        
-        speedVectorVertical.y = vSpeed;        
-        
-        if (characterController.enabled)
-        {
-            characterController.Move(speedVectorVertical * Time.deltaTime);    
-            characterController.Move(speedVectorHorizontal * Time.deltaTime);  
+        vSpeed  -= Gravity * Time.deltaTime;  
 
-            if (inputAxisHorizontal != 0)        
-            {            
-                if (inputAxisHorizontal > 0)            
-                {                
-                    Pivot.transform.rotation = Quaternion.Euler(0, 90, 0);           
-                }            
-                else if (inputAxisHorizontal < 0)            
-                {                
-                    Pivot.transform.rotation = Quaternion.Euler(0, -90, 0);     
-                }     
-            }
-
-            if (inputAxisVertical != 0)        
-            {            
-                if (inputAxisVertical > 0)            
-                {                
-                    Pivot.transform.rotation = Quaternion.Euler(0, 0, 0);           
-                }            
-                else if (inputAxisVertical < 0)            
-                {                
-                    Pivot.transform.rotation = Quaternion.Euler(0, 180, 0);     
-                }     
-            } 
-        }
-
-        animator.SetBool("Run", inputAxisVertical != 0 || inputAxisHorizontal != 0);
+        Vector3 gravForce = MoveDirection;
+        gravForce.y = vSpeed;
+        MoveDirection = gravForce;
     }
 
     [NaughtyAttributes.Button("respawn")]
