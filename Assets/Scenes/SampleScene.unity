@@ -1116,11 +1116,11 @@ MonoBehaviour:
   AnimatedTarget: {fileID: 1220604720}
   LayerIndex: 0
   Instructions:
-  - FullHash: 1432961145
+  - FullHash: -757307838
     Camera: {fileID: 244731952}
     ActivateAfter: 0
     MinDuration: 0
-  - FullHash: -827840423
+  - FullHash: 1932378568
     Camera: {fileID: 244731952}
     ActivateAfter: 0
     MinDuration: 0
@@ -1129,10 +1129,6 @@ MonoBehaviour:
     ActivateAfter: 0
     MinDuration: 0
   HashOfParent:
-  - Hash: 1432961145
-    HashOfParent: 756556552
-  - Hash: -827840423
-    HashOfParent: 756556552
   - Hash: 306637226
     HashOfParent: 756556552
   - Hash: -1454647999
@@ -1140,6 +1136,10 @@ MonoBehaviour:
   - Hash: 197813724
     HashOfParent: 756556552
   - Hash: 1353449261
+    HashOfParent: 756556552
+  - Hash: -757307838
+    HashOfParent: 756556552
+  - Hash: 1932378568
     HashOfParent: 756556552
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}

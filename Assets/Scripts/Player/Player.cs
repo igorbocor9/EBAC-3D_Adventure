@@ -37,6 +37,8 @@ public class Player : Singleton<Player>//, IDamageable
 
     [SerializeField] private ClothChange _clothChanger;
 
+    private bool _jumping = false;
+
     private void OnValidate()
     {
         if (healthBase == null)
@@ -47,6 +49,7 @@ public class Player : Singleton<Player>//, IDamageable
 
     private void Start()
     {
+        animator.SetTrigger("idle");
         OnValidate();
 
         healthBase.OnDamage += Damage;
@@ -152,10 +155,21 @@ public class Player : Singleton<Player>//, IDamageable
     {
         if(characterController.isGrounded)        
         {            
+            if (_jumping)            
+            {                
+                animator.SetTrigger("Land");                
+                _jumping = false;            
+            }
+
             vSpeed = 0;            
             if(Input.GetKeyDown(jumpKeyCode))            
             {                
-                vSpeed = jumpSpeed;            
+                vSpeed = jumpSpeed;    
+                if (!_jumping)
+                {
+                    animator.SetTrigger("Jump");        
+                    _jumping = true;
+                }
             }        
         }     
         
